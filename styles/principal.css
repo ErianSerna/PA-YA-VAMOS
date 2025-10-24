@@ -1,0 +1,489 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Times New Roman', Times, serif
+}
+
+body {
+  background-color: #DAEBFF;
+  width: 100%;           
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;   
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #DAEBFF;
+}
+
+.nav-main {
+  margin-left: 30px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Estilo para el menu hamburguesa en dispositivos moviles */
+
+.menu-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1;
+}
+
+.mobile-menu-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: #FFB74D;
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: none; 
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-menu-content {
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-menu-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 50px;
+}
+
+.mobile-menu-header h2 {
+  font-size: 28px; 
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.close-menu-btn {
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  line-height: 0.5;
+}
+
+.mobile-nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0;
+  width: 100%;
+}
+
+.mobile-nav-menu li {
+  width: 90%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  padding-bottom: 15px;
+}
+
+.mobile-nav-menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif; 
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 50px;
+  flex: 1;
+}
+
+.container-buscarPlan {
+  width: 70%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  gap: 20px;
+  background-color: #DAEBFF;
+}
+
+#h2-buscarPlan {
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+#form-buscarPlan {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor de filtros: 4 por fila por defecto */
+.container-filtros {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+.filtro {
+  width: 23%; 
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filtro label {
+  text-align: left;
+  margin-left: 5px;
+}
+
+.filtro select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  width: 100%;
+  font-size: 16px;
+}
+
+.container-botonBuscar {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.container-botonBuscar button {
+  padding: 15px 40px;
+  font-size: 18px;
+  cursor: pointer;
+  border: 0.5px solid #000;
+  border-radius: 20px;
+  background-color: #FFB74D;
+  transition: all 0.3s ease;
+}
+
+.container-botonBuscar button:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.container-resultados {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.card-vEsmeralda { 
+  background-color: #23a84a; 
+}
+
+.card-vBosque { 
+  background-color: #24915e; 
+}
+
+.card-vOliva { 
+  background-color: #88b425; 
+}
+
+.card-vLima { 
+  background-color: #9acf27; 
+}
+
+.card img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.container-planesAbiertos {
+  width: 30%;
+  height: 700px;
+  background-color: #FFB74D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+.container-listadoPlanesAbiertos {
+  width: 90%;
+  height: 600px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.container-planAbierto {
+  width: 90%;
+  min-height: 80px;
+  background-color: #FFF;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.container-planAbierto img {
+  width: 50px;
+  height:50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.container-planAbiertoContent h3 {
+  margin-bottom: 5px;
+}
+
+footer {
+  width: 100%;
+  padding: 50px 10px;
+  background-color: #c2e5f3;
+  margin-top: auto;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links {
+  width: 25%; 
+  padding: 0 15px;
+}
+
+.footer-links h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.footer-links ul {
+  padding-left: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-copyright {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Media query para ancho maximo de 1390px */
+@media (max-width: 1390px) {
+  main {
+    padding: 20px 20px; 
+  }
+  
+  /* 2 selects por fila */
+  .container-filtros {
+    justify-content: center; /* centrar los filtros */
+    gap: 30px; 
+  }
+  
+  .filtro {
+    width: 45%; 
+    max-width: 400px;
+  }
+  
+  .container-buscarPlan {
+    width: 65%; 
+    padding: 30px 10px;
+  }
+  
+  .container-planesAbiertos {
+    width: 30%;
+    min-width: 300px; /* ancho minimo para que no se colapsen */
+  }
+}
+
+/* Media query para moviles ancho maximo de 520px */
+@media (max-width: 520px) {
+  header {
+    justify-content: space-between; 
+    padding: 10px 15px;
+  }
+  
+  .nav-main {
+    display: none;
+  }
+  
+  .menu-toggle-btn {
+    display: block;
+    font-size: 28px;
+  }
+  
+  header h1 {
+    flex-grow: 1; 
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  /* coloca los contenedores principales en una columna (Buscar Plan y Planes Abiertos) */
+  main {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px; 
+    gap: 30px;
+  }
+  
+  .container-buscarPlan {
+    width: 100%; 
+    max-width: 600px; /* limitar el ancho máximo */
+    padding: 20px 10px;
+  }
+  
+  .container-planesAbiertos {
+    width: 100%;
+    max-width: 600px;
+    height: auto; /* altura automatica */
+    min-height: 200px;
+    order: 2; /* para que aparezca luego del contenedor de buscarPlan*/
+  }
+  
+  .container-listadoPlanesAbiertos {
+    max-height: 300px; /* limitar la altura para scroll */
+  }
+  
+  /* ajuste de los filtros en móvil: 1 por fila */
+  .container-filtros {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .filtro {
+    width: 90%; /* un select por fila, ocupando casi todo el ancho */
+    max-width: 350px;
+  }
+  
+  .filtro select {
+    padding: 12px;
+    font-size: 18px;
+  }
+  
+  .container-botonBuscar button {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+  
+  /* ajuste para las cards de resultados en móvil */
+  .container-resultados {
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 90%;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+  
+  /* footer en moviles */
+  footer {
+    padding: 30px 10px;
+  }
+  
+  .footer-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-links {
+    width: 90%;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .footer-links h4 {
+    border-bottom: 1px solid #000;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-copyright {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+}

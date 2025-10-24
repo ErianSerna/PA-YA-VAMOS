@@ -1,0 +1,462 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/FondoLogin.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    position: absolute;
+    top: 40px;
+    left: 40%;
+    transform: translateX(-70%);
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.swal2-popup {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.btnLoginResponsive {
+    display: none;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 200px;
+}
+
+.containerCards {
+    display: flex;
+    flex-direction: column;
+    gap: 70px
+}
+
+.containerForm {
+    border-color: 5px solid black;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 320px;
+}
+
+.containerForm h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.containerForm label {
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+}
+
+.fieldForm {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 18px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+}
+
+.btnSubmit {
+    background-color: #ffa73b;
+    border: none;
+    font-size: 15px;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2 ease;
+}
+
+.btnIngresarResponsive {
+    display: none;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.btnSubmit:hover {
+    background-color: #ffaf4d;
+}
+
+/*Estilos boton de resgistro*/
+.btnRegister {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+/* estilo del enlace */
+.btnRegister a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 210px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 2px solid #2f2f2f;
+    border-radius: 50px 10px 10px 50px;
+    text-decoration: none;
+    color: #333;
+    font-size: 17px;
+    font-weight: 500;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* animación al pasar el mouse */
+.btnRegister a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* texto a la izquierda */
+.btnRegister span {
+    flex: 1;
+    padding-left: 25px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* icono a la derecha dentro de su recuadro */
+.iconUser {
+    width: 28px;
+    height: 28px;
+    background-color: #ffffff;
+    border-left: 2px solid #2f2f2f;
+    padding: 8px;
+    box-sizing: content-box;
+}
+
+/*Estilos de los comentarios*/
+.card {
+    position: relative;
+    background: white;
+    border-radius: 30px;
+    padding: 15px 25px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.cardRigth {
+    position: relative;
+    background: white;
+    border-radius: 30px;
+    padding: 15px 25px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    left: 400px;
+}
+
+/* estilos para los iconos que colocamos sobre los contenedores */
+.icon {
+    position: absolute;
+    top: -20px;
+    /* lo sube encima del contenedor */
+    /* left: -20px;   */
+    width: 53px;
+    height: 53px;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* el primer y tercer icono quedan a la izq */
+#icon1,
+#icon3 {
+    left: -20px;
+}
+
+/* el segundo y cuarto icono quedan a la der */
+#icon2,
+#icon4 {
+    right: -20px;
+}
+
+
+/*---------------------------------------------------- MEDIAQUERYS ---------------------------------------------------- */
+@media (min-width: 1920px) {
+    .mainContainer {
+        padding: 0 300px;
+    }
+
+    .containerForm {
+        width: 350px;
+    }
+
+    .card,
+    .cardRigth {
+        width: 300px;
+    }
+}
+
+@media (max-width: 1760px) {
+
+    body {
+        padding: 0 100px;
+    }
+
+    .containerCards {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1919px) {
+    .containerCards {
+        gap: 5px;
+    }
+
+    .card,
+    .cardRigth {
+        width: 280px;
+    }
+
+    .card {
+        left: -7rem;
+    }
+
+    .cardRigth {
+        left: 14rem;
+        margin-bottom: 1rem;
+    }
+
+    .containerForm {
+        padding: 20px;
+    }
+
+    .containerForm h2 {
+        font-size: 20px;
+    }
+
+    .containerForm label {
+        font-size: 15px;
+        font-family: "Roboto", sans-serif;
+    }
+
+
+
+}
+
+@media (max-width: 1472px) {
+
+    body {
+        background-image: url("../images/FondoResponsive.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    .mainContainer {
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 0 50px;
+        gap: 50px;
+    }
+
+    .containerForm {
+        margin-top: 30rem;
+        width: 400px;
+    }
+
+    .containerCards {
+        margin-bottom: 5px;
+        gap: 10px;
+    }
+
+    .card {
+        left: -10rem;
+    }
+
+    .cardRigth {
+        left: 10rem;
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        left: 55%;
+    }
+
+    .btnRegister {
+        display: none;
+    }
+
+
+    .buttonsContainer {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+
+    .btnLoginResponsive {
+        text-align: center;
+        color: #000;
+        text-decoration: none;
+        display: block;
+        background-color: #ffe029;
+        border: none;
+        font-size: 15px;
+        border-radius: 25px;
+        padding: 10px 20px;
+        width: 100%;
+        font-family: "Roboto", sans-serif;
+        cursor: pointer;
+        transition: background-color 0.2 ease;
+    }
+
+    .btnLoginResponsive:hover {
+        background-color: #f3d637;
+    }
+}
+
+@media (max-width: 1376px) {
+
+    h1 {
+        left: 55%;
+    }
+}
+
+@media (max-width: 1120px) {
+    .containerForm {
+        margin-top: 30rem;
+        width: 400px;
+    }
+
+    h1 {
+        left: 56%;
+    }
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        left: 57%;
+    }
+}
+
+@media (max-width: 960px) {
+    h1 {
+        left: 57.5%;
+    }
+}
+
+@media (max-width: 832px) {
+
+    .containerForm {
+        margin-top: 30rem;
+        width: 400px;
+    }
+
+    h1 {
+        font-size: 35px;
+        width: max-content;
+    }
+
+    .containerCards {
+        gap: 30px;
+    }
+
+    .card {
+        left: -7rem;
+        font-size: 18px;
+    }
+
+    .cardRigth {
+        left: 7rem;
+        font-size: 18px;
+    }
+
+
+}
+
+@media (max-width: 512px) {
+
+    .containerForm {
+        margin-top: 30rem;
+        width: 400px;
+    }
+
+    h1 {
+        left: 63%;
+        font-size: 35px;
+
+    }
+
+    .card {
+        left: -4rem;
+        font-size: 18px;
+    }
+
+    .cardRigth {
+        left: 4rem;
+        font-size: 18px;
+    }
+
+    body {
+        background-position: center;
+    }
+
+}
+
+@media (max-width: 416px) {
+
+    .containerForm {
+        margin-top: 30rem;
+        width: 350px;
+    }
+
+    .containerCards {
+        gap: 20px;
+    }
+
+    .card {
+        left: -2rem;
+        font-size: 18px;
+    }
+
+    .cardRigth {
+        left: 2rem;
+        font-size: 18px;
+    }
+
+    h1 {
+        left: 63%;
+        font-size: 35px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    body {
+        background-position: initial;
+        background-size: auto;
+    }
+
+}
