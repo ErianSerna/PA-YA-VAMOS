@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Principal</title>
     <link rel="icon" type="image/png" href="<?= $url_base ?>/images/logo.png">
-    <link rel="stylesheet" href="<?=$url_base?>/styles/principal.css">
+    <link rel="stylesheet" href="<?=$url_base?>/styles/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -210,7 +210,7 @@
     </footer>
 
     <!-- Referencia al javascript -->
-    <!-- Se actualiza la ruta al nuevo archivo principal.js -->
-    <script src="<?=$url_base?>/scripts/principal.js"></script>
+    <!-- Se actualiza la ruta al nuevo archivo index.js -->
+    <script src="<?=$url_base?>/scripts/index.js"></script>
 </body>
 </html>

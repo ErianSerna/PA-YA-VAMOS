@@ -64,7 +64,7 @@ $url_base = $protocolo . "://" . $host . "/" . $nombreProyecto;
         </div>
         <!--formulario de login-->
         <div class="containerForm">
-            <form action="<?= $url_base ?>/views/principal.php" method="post">
+            <form action="<?= $url_base ?>/views/index.php" method="post">
                 <h2>INICIO DE SESIÓN</h2>
                 <label>Correo</label>
                 <input type="email" name="email" class="fieldForm" required><br>
