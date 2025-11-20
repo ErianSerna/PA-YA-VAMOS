@@ -25,6 +25,9 @@ h1 {
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
+.swal2-popup {
+  font-family: 'Roboto', sans-serif !important;
+}
 
 .mainContainer {
   display: flex;

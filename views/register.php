@@ -68,26 +68,22 @@ $url_base = $protocolo . "://" . $host . "/" . $nombreProyecto;
         </div>
         <!--formulario de login-->
         <div class="containerForm ">
-            <form action="<?= $url_base ?>/views/login.php" method="post">
+                
+
+            <form id="formRegister">
+
                 <h2>REGISTRO</h2>
                 <label>Nombre</label>
                 <input type="text" name="nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+" class="fieldForm" title="Solo se permiten letras" required><br>
                 <label>Apellidos</label>
                 <input type="text" name="lastName" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+" class="fieldForm" title="Solo se permiten letras" required><br>
-                <label>Fecha naciemiento</label>
+                <label>Fecha nacimiento</label>
                 <input type="date" name="birthdate" class="fieldForm" required><br>
                 <label>Municipio</label>
                 <select name="city" class="fieldForm" required>
-                    <option value="medellin">Medellín</option>
-                    <option value="barbosa">Barbosa</option>
-                    <option value="copacabana">Copacabana</option>
-                    <option value="girardota">Girardota</option>
-                    <option value="envigado">Envigado</option>
-                    <option value="itagui">Itagüí</option>
-                    <option value="sabaneta">Sabaneta</option>
-                    <option value="laEstrella">La estrella </option>
-                    <option value="caldas">Caldas</option>
-                    <option value="bello">Bello</option>
+                    <option value="1">Medellín</option>
+                    <option value="2">Bello</option>
+                    <option value="3">Girardota</option>
                 </select>
                 <label>Correo</label>
                 <input type="email" name="email" class="fieldForm" required><br>
@@ -98,14 +94,14 @@ $url_base = $protocolo . "://" . $host . "/" . $nombreProyecto;
 
 
                 <div class="buttonsContainer">
-                    <button type="submit" class="btnSubmit">REGISTRO</button>
-                    <a href="<?= $url_base ?>/views/login.php" class="btnLoginResponsive">INICIO DE SESIÓN</a>
+                    <button id="btnSubmit" type="submit" class="btnSubmit">REGISTRO</button>
+                    <a href="<?= $url_base?>/views/login.php" class="btnLoginResponsive">INICIO DE SESIÓN</a>
                 </div>
 
             </form>
         </div>
     </div>
-    <script src="<?= $url_base ?>/scripts/login.js"></script>
+    <script src="<?= $url_base ?>/scripts/register.js"></script>
 </body>
 
 </html>

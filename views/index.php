@@ -1,4 +1,12 @@
-<?php  
+<?php
+
+    session_start();
+
+    if (!isset($_SESSION["usuario"])) {
+        header("Location: login.php");
+        exit();
+    }
+
     // Determino si es HTTP o HTTPS
     if ($_SERVER["SERVER_PROTOCOL"] == "HTTP/1.1") {
         $protocolo = "http";
@@ -31,37 +39,44 @@
 </head>
 <body>
     
-    <!-- OVERLAY DEL MENÚ HAMBURGUESA (Se muestra solo en móvil) -->
+<!-- OVERLAY DEL MENÚ HAMBURGUESA (Se muestra solo en móvil) -->
     <div id="mobile-menu-overlay" class="mobile-menu-overlay">
         <div class="mobile-menu-content">
             <div class="mobile-menu-header">
-                <h2>PA'YA VAMOS</h2>
+                <h2><a href="<?=$url_base?>/views/index.php">PA'YA VAMOS</a></h2>
                 <button id="close-menu-btn" class="close-menu-btn">&times;</button>
             </div>
             <nav class="mobile-nav-main">
                 <ul class="mobile-nav-menu">
-                    <li><a href="#">PÁGINA PRINCIPAL</a></li>
-                    <!-- Si tienes más opciones, agrégalas aquí para el menú móvil -->
+                    <li><a href="<?=$url_base?>/views/planesAbiertos.php">PLANES ABIERTOS</a></li>
+                </ul>
+                <ul class="mobile-nav-menu">
+                    <li><a href="logout.php">CERRAR SESIÓN</a></li>
                 </ul>
             </nav>
         </div>
     </div>
     
-    <div class="container">
-
-    </div>
     <header>
         <!-- Botón para abrir el menú (icono hamburguesa) -->
         <button id="open-menu-btn" class="menu-toggle-btn">
             <i class="fas fa-bars"></i>
         </button>
-        <h1>PA'YA VAMOS</h1>
+        <h1><a href="<?=$url_base?>/views/index.php">PA'YA VAMOS</a></h1>
         <nav class="nav-main">
             <ul class="nav-menu">
-                <li><a href="#">PÁGINA PRINCIPAL</a></li>
+                <li><a href="<?=$url_base?>/views/planesAbiertos.php">PLANES ABIERTOS</a></li>
             </ul>
+            <div class="logout-container">
+                <a href="logout.php">
+                    <img src="<?= $url_base ?>/images/logout.png" class="logout-icon" alt="Cerrar sesión">
+                </a>
+            </div>
         </nav>
     </header>
+
+    
+
     <main>
         <!-- El ancho del buscarPlan sera el mismo para planesAbiertos -->
         <div class="container-buscarPlan">
@@ -103,15 +118,8 @@
                         <select name="" id="select-actividad4">
                             <option value="" selected disabled></option>
                             <option value="medellin">Medellín</option>
-                            <option value="barbosa">Barbosa</option>
-                            <option value="copacabana">Copacabana</option>
-                            <option value="girardota">Girardota</option>
-                            <option value="envigado">Envigado</option>
-                            <option value="itagui">Itagüí</option>
-                            <option value="sabaneta">Sabaneta</option>
-                            <option value="laEstrella">La estrella </option>
-                            <option value="caldas">Caldas</option>
                             <option value="bello">Bello</option>
+                            <option value="girardota">Girardota</option>
                         </select>
                     </div>
                 </div>
@@ -119,78 +127,18 @@
                     <button type="submit" id="btn-buscarPlan">Consultar</button>
                 </div>
             </form>
-
-            <div class="container-resultados">
-                <div class="card card-vEsmeralda">
-                    <img src="<?=$url_base?>/images/tierra-querida.jpg" alt="icono1">
-                    <div class="card-content">
-                        <h3>Tierra Querida</h3>
-                        <p>No nos conocían por el nombre… pero sí por el sabor. </p>
-                    </div>
-                </div>
-                <div class="card card-vBosque">
-                    <img src="<?=$url_base?>/images/fresas-crema.jpg" alt="icono2">
-                    <div class="card-content">
-                        <h3>Fresas con Crema</h3>
-                        <p>Las mejores fresas con crema de todo el mundo. </p>
-                    </div>
-                </div>
-                <div class="card card-vOliva">
-                    <img src="<?=$url_base?>/images/pizza.jpg" alt="icono3">
-                    <div class="card-content">
-                        <h3>Domino's Pizza</h3>
-                        <p>Es una de las compañías de pizza más grandes del mundo. </p>
-                    </div>
-                </div>
-                <div class="card card-vLima">
-                    <img src="<?=$url_base?>/images/cine.jpg" alt="icono4">
-                    <div class="card-content">
-                        <h3>Cinema Procinal</h3>
-                        <p>Peliculas super entretenidas para disfrutar. </p>
-                    </div>
-                </div>
+            <div class="container-resultados" id="container-resultados">
+                <!-- Los resultados de la busqueda se mostraran aqui -->
             </div>
+            
         </div> <!-- Fin container-buscarPlan -->
 
         <div class="container-planesAbiertos">
             <h2 id="h2-buscarPlan">PLANES ABIERTOS</h2>
-            <div class="container-listadoPlanesAbiertos">
-                <div class="container-planAbierto">
-                    <img src="<?=$url_base?>/images/iglesia.jpg" alt="Img iglesia">
-                    <div class="container-planAbiertoContent">
-                        <h3>IGLESIA CARMEN</h3>
-                        <p>Vamos a misa juntos :D</p>
-                    </div>
-                </div>
-                <div class="container-planAbierto">
-                    <img src="<?=$url_base?>/images/cinecolombia.jpg" alt="Img cine">
-                    <div class="container-planAbiertoContent">
-                        <h3>CINE: EL CONJURO</h3>
-                        <p>Busco amigos para ver esta peli :j</p>
-                    </div>
-                </div>
-                <div class="container-planAbierto">
-                    <img src="<?=$url_base?>/images/cementerio.jpg" alt="Img cementerio">
-                    <div class="container-planAbiertoContent">
-                        <h3>CEMENTERIO SAN PEDRO</h3>
-                        <p>Vamos a saquear tumbas >:D</p>
-                    </div>
-                </div>
-                <div class="container-planAbierto">
-                    <img src="<?=$url_base?>/images/bolos.jpg" alt="Img bolos">
-                    <div class="container-planAbiertoContent">
-                        <h3>BOLOS Y COMIDA</h3>
-                        <p>Pasar el rato con bolos y a comer</p>
-                    </div>
-                </div>
-                <div class="container-planAbierto">
-                    <img src="<?=$url_base?>/images/volley.webp" alt="Img volley">
-                    <div class="container-planAbiertoContent">
-                        <h3>JUGAR VOLLEY</h3>
-                        <p>Busco amigos para jugar un rato :v</p>
-                    </div>
-                </div>
+            <div class="container-listadoPlanesAbiertos" id="container-listadoPlanesAbiertos">
+                <!--los planes se mostraran aqui-->
             </div>
+             <button class="btn-crear-plan-nuevo" id="btn-crear-plan-nuevo">Crear plan</button>
         </div>
     </main>
     <footer>
@@ -199,7 +147,7 @@
                     <h4>Servicios</h4>
                     <ul>
                         <li><a href="#">Encontrar plan</a></li>
-                        <li><a href="#">Planes abiertos</a></li>
+                        <li><a href="<?=$url_base?>/views/planesAbiertos.php">Planes abiertos</a></li>
                     </ul>
                 </div>
                 
@@ -208,9 +156,42 @@
                 <p>&copy; 2025 Pa'Ya Vamos. Todos los derechos reservados.</p>
             </div>
     </footer>
+    <!--modal de sugerencias-->
+    <div id="modal-sugerencia" class="modal">
+        <div class = "modal-content">
+            <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-foto" src="" alt="Imagen sugerencia">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-nombre" class="modal-titulo">Nombre del Lugar</h2>
+                    <h3 id="modal-tipo-actividad" class="modal-subtitulo">Tipo de Actividad</h3>
+                    <p id="modal-descripcion" class="modal-descripcion">
+                        Descripción del lugar...
+                    </p>
+                    <div class="modal-detalles">
+                        <div class="modal-detalle-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="modal-direccion">Dirección</span>
+                        </div>
+                        
+                        <div class="modal-detalle-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="modal-horario">Horario: 1PM - 8PM</span>
+                        </div>
+                    </div>
+                    <div class="modal-acciones">
+                        <button class="btn-crear-plan">CREAR PLAN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Referencia al javascript -->
     <!-- Se actualiza la ruta al nuevo archivo index.js -->
     <script src="<?=$url_base?>/scripts/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

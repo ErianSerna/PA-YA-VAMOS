@@ -6,6 +6,7 @@ if ($_SERVER["SERVER_PROTOCOL"] == "HTTP/1.1") {
     $protocolo = "https";
 }
 
+
 $host = $_SERVER["HTTP_HOST"];
 
 $uri = $_SERVER["REQUEST_URI"];
@@ -28,6 +29,8 @@ $url_base = $protocolo . "://" . $host . "/" . $nombreProyecto;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -64,7 +67,7 @@ $url_base = $protocolo . "://" . $host . "/" . $nombreProyecto;
         </div>
         <!--formulario de login-->
         <div class="containerForm">
-            <form action="<?= $url_base ?>/views/index.php" method="post">
+            <form id="formLogin" method="POST">
                 <h2>INICIO DE SESIÓN</h2>
                 <label>Correo</label>
                 <input type="email" name="email" class="fieldForm" required><br>
@@ -72,10 +75,9 @@ $url_base = $protocolo . "://" . $host . "/" . $nombreProyecto;
                 <input type="password" name="password" class="fieldForm" required><br>
 
                 <div class="buttonsContainer">
-                    <button type="submit" class="btnSubmit">INGRESAR</button>
+                    <button id="submit" type="submit" class="btnSubmit">INGRESAR</button>
                     <a href="<?= $url_base ?>/views/register.php" class="btnRegisterResponsive">REGISTRO</a>
                 </div>
-
             </form>
         </div>
     </div>
